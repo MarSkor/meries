@@ -184,16 +184,14 @@ const PersonDetailsCard = () => {
           <h2 id="acting"><span className='number'>03.</span> Acting</h2>
           {groupArrays.map((item, i) => {
             return(
-            <>
-            <div className="casting-wrap">
-              <h3 key={i}>{item.date}</h3>
+            <div className="casting-wrap" key={i}>
+              <h3>{item.date}</h3>
               <div className="casting-list">
               {item.items.map((casting, i) =>(
                <CastingItem {...casting} key={i}/>
               ))}
               </div>
             </div>
-            </>
             )
           })}
         </section>

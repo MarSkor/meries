@@ -13,9 +13,10 @@ const Search = ({ placeholder }) => {
     const navigate = useNavigate();
 
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+      e.preventDefault();
       if (searchItems.length) {
-        navigate({pathname: `/search/${query}`});
+        navigate(`/search/${query}`);
       } else {
         setError({isError: true});
       }
@@ -55,6 +56,7 @@ const Search = ({ placeholder }) => {
         type="text" 
         name='query'
         value={query}
+        autoComplete="off"
         placeholder={placeholder}
         onChange={handleChange}
         error={error.isError}
@@ -74,7 +76,7 @@ const Search = ({ placeholder }) => {
       {searchItems.length != 0 && (
         <div className="searchlist">
           <ul className='list-bg'>
-          {searchItems.slice(0,12).map((item, i) => {
+          {searchItems.slice(0,12).map((item) => {
             return(
               <Link to={item ? (`/${item.media_type}/${item.id}`) : (`/person/${item.id}`)} className="card-link" key={item.id}>
               <li>

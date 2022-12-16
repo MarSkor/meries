@@ -6,6 +6,7 @@ import { OutlineButton } from '../components/common/button/Button';
 
 const SearchResults = () => {
   const { query } = useParams();
+
   const { search, loading, error, loadMore } = useSearch(query)
 
   if(error){

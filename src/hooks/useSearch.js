@@ -22,17 +22,17 @@ const useSearch = (query, which) => {
                 setSearch(data.results);
                 setTotalPage(data.total_pages);
 
-                console.log("data", data)
+                // console.log("data", data)
 
                 setError(false);
                 setLoading(false);
             } catch(error){
+                console.error(error)
                 // if (error.response) {
                     // // console.log(error.response.data);
                     // console.log(error.response.status);
                     // // console.log(error.response.headers);
                 //   }
-                if(error.response.status)
                 setLoading(false)
                 setError(true)
             }
