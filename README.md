@@ -11,7 +11,10 @@ Meries is a website that allows users to search for movies, tv shows and people 
 React and SCSS.
 
 API used https://www.themoviedb.org/
-<img src="./src/assets/themoviedblogo.svg" width="100" alt="themoviedb"/>
+
+<div style="float:left;" markdown="1">
+    <img src="./src/assets/themoviedblogo.svg" width="100" alt="themoviedb" style/>
+</div>
 
 ## To do
 
