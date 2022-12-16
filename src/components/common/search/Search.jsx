@@ -34,7 +34,7 @@ const Search = ({ placeholder }) => {
       } catch(e) {
         console.log(e)
        if(e.response.status === 422){
-        setError(e.response.data.errors)
+        setError(e)
        }
       }
     }
@@ -71,16 +71,15 @@ const Search = ({ placeholder }) => {
         )}
       </form>
 
-      {searchItems.length > 0 ? (
+      {/* {searchItems.length > 0 ? ( */}
         <ul className="searchlist">
-          {searchItems.slice(0,10).map((item, i) => (
+          {searchItems.slice(0,12).map((item, i) => (
           <div className="list-bg" key={i}>
             <Link to={item ? (`/${item.media_type}/${item.id}`) : (`/person/${item.id}`)} className="card-link" key={item.id}>
               <li>
                 <img 
                 className='media-sm-img' 
-                src={item?.profile_path || item?.poster_path ? 
-                  (apiConfig.w500Img(item.poster_path || item.profile_path)) : NoImage } 
+                src={item?.profile_path || item?.poster_path ? (apiConfig.w500Img(item.poster_path || item.profile_path)) : NoImage } 
                 alt={item.name || item.title || item.original_name || item.original_title} 
                 />
                 <div className='search-info'>
@@ -99,7 +98,11 @@ const Search = ({ placeholder }) => {
             ) : ""}
           {error ? <p>{error}</p> : ""}
         </ul>
-      ) : ""}
+      {/* // ) : (
+      //   <ul className="searchlist">
+      //     <p>No Items</p>
+      //   </ul> */}
+      {/* // )} */}
     </div>
     </>
   )
