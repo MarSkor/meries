@@ -1,0 +1,41 @@
+.btn-wrap{
+    text-align: center;
+
+    .load-more{
+        padding: 8px 18px;
+        border-radius: 8px;
+        background-color: var(--clr-brand-secondary);
+        border: none;
+        font-weight: 500;
+        transition: .3s ease;
+        cursor: pointer;
+        &:hover{
+            background-color: var(--clr-ui-item);
+            color: var(--clr-text-grey);
+        }
+    }
+}
+
+.btn-icon{
+    background: none;
+    position: absolute;
+    border: none;
+    color: var(--clr-text-grey);
+    padding: 10px; // for larger clickable area
+    cursor: pointer; 
+
+    //centering icon in button
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+
+    top: 0px;
+    right: 0px;
+
+    //size of icons
+    .clear-icon, .search-icon{
+        width: 1.375rem;
+        height: 1.375rem;
+    }
+}
+

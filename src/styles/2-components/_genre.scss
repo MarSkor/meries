@@ -1,0 +1,81 @@
+// GENRES ?  -------------------------------------------
+
+.selected-genres{
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .genre-badge{
+        margin: 20px 10px 0 0;
+        border-radius: 4px;
+        background-color: var(--clr-ui-item);
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    .active{
+        background-color: var(--clr-brand-secondary);
+        color: var(--clr-brand-primary);
+    }
+}
+
+.select-wrapper, .select-wrapper-multi{
+    max-width: 100%;
+    width: 350px;
+}
+
+.sorting-wrap{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    // width: 100%;
+}
+
+
+@media (min-width: 55em){
+    .sorting-wrap{
+        flex-direction: row;
+        display: flex;
+    }
+}
+
+// BADGE -------------------------------------------
+
+.badge{
+   padding: 8px 15px;
+   border-radius: 8px;
+}
+
+.badge-default{
+    background-color: var(--clr-ui-item-dark);
+    border: 1px solid var(--clr-ui-item);
+}
+
+.badge-outline{
+    background-color: transparent;
+    border: 1px solid var(--clr-ui-item-grey);
+}
+
+//same page anchor tags with 'badge' styling
+.links{
+    display: flex;
+    padding-bottom: 50px;
+}
+
+.links a{
+    text-decoration: none;
+    color: var(--clr-text-grey);
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.badge-link{
+    background-color: var(--clr-ui-item);
+    border: 1px solid var(--clr-ui-item-light);
+    transition: .3s ease;
+}
+
+.badge-link:hover{
+    background-color: var(--clr-ui-item-light);
+    color: var(--clr-text-grey);
+}

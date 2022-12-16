@@ -1,0 +1,35 @@
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: rgb(3, 13, 28);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 13px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--clr-brand-tertiary);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--clr-ui-item);
+    border-radius: 0px;
+    border: 0px none rgb(3, 13, 28);
+  }
+
+  .searchlist::-webkit-scrollbar {
+    width:5px;
+  }
+
+ .searchlist::-webkit-scrollbar-track {
+    -webkit-box-shadow:inset 0 0 6px rgb(11, 11, 11); 
+    border-radius:5px;
+  }
+
+  .searchlist::-webkit-scrollbar-thumb {
+    border-radius:5px;
+    -webkit-box-shadow: inset 0 0 6px var(--clr-brand-secondary); 
+  }

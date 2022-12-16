@@ -1,0 +1,157 @@
+nav{
+    z-index: 99;
+    transition: .3s ease;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+}
+
+.nav-wrap, .nav-extra, .nav-items{
+    @include displayFlex;
+}
+
+.nav-wrap{
+    max-width: var(--width-container);
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 10px;
+    
+}
+
+.logo-wrap, .logo-img{
+    @include displayFlex;
+}
+
+.logo-small{
+    display: none;
+}
+
+@media (max-width: 55em){
+    .logo-small{
+        display: block;
+    }
+
+    .logo-big{
+        display: none;
+    }
+
+    .nav-wrap{
+        width: 100%;
+    }
+}
+
+@media (min-width: 55em){
+    .logo-big{
+        display: block;
+    }
+}
+
+.logo-img{
+    width: 100px;
+}
+
+.nav-item{
+    list-style: none;
+    font-weight: 600;
+    margin: 0 10px;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: var(--clr-text-gray);
+    font-weight: 400;
+    transition: .3s ease;
+    font-size: var(--fs-400);
+}
+
+.nav-link:hover, .nav-link.active{
+    color: var(--clr-brand-secondary);
+}
+
+
+button.nav-toggle{
+    display: none;
+}
+
+
+@media (max-width: 69.375em){
+    nav{
+        display: flex;
+        height: 70px;
+        align-items: center;
+        background: var(--clr-brand-primary-nav);
+        // backdrop-filter: blur(1.5rem);
+    }
+
+    .nav-items{
+        --gap: 2em;
+
+        position: fixed;
+        inset: 0 0 0 30%;
+        z-index: 998;
+
+        flex-direction: column;
+        padding: min(30vh, 10rem) 2em;
+        margin: 0;
+        
+        transform: translateX(100%);
+        transition: transform 350ms ease-out;
+
+        background: var(--clr-brand-primary-mobile-nav);
+        backdrop-filter: blur(1.5rem);
+    
+    }
+
+    .nav-items.showMenu{
+        transform: translateX(0);
+    } 
+
+    .nav-extra{
+        flex-direction: column;
+    }
+
+    button.nav-toggle{
+        display: block;
+        background: none;
+        cursor: pointer;
+    }
+
+    .nav-icon{
+        color: var(--clr-brand-secondary);
+       font-size: 1.5rem;
+    }
+
+    .nav-toggle{
+        z-index: 999;
+        position: absolute;
+        background-repeat: no-repeat;
+        width: 2rem;
+        border: 0;
+        aspect-ratio: 1;
+        top: 1.5rem;
+        right: .6rem;
+    }
+}
+
+
+
+@media (min-width: 35em) and (max-width:55em){
+    .nav-items a > span[aria-hidden]{
+        display: none;
+    }
+}
+
+
+@media (min-width: 70em){
+    .navbar.colorChange, .navbar:hover{
+        background-color: var(--clr-brand-primary-op);
+        backdrop-filter: blur(6px);
+    }
+    
+    .nav-item{
+        padding: 0px 0px 0px 10px;
+    }
+}
+
+

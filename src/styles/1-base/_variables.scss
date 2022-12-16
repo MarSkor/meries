@@ -1,0 +1,63 @@
+:root{
+    --font-sans: 'General Sans', sans-serif;
+
+    --width-container: 1400px;
+
+    // font sizes
+    --fs-900: clamp(2rem, 4vw, 3rem);
+    --fs-800: 1.8rem;
+    --fs-700: 1.5rem;
+    --fs-600: 1rem;
+    --fs-500: 1rem;
+    --fs-400: 0.9375rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+
+    //colors
+    --clr-brand-primary: #000d22;
+    --clr-brand-secondary: rgb(250, 173, 28);
+    --clr-brand-tertiary: #041734;
+
+    --clr-brand-primary-op: rgba(0, 13, 34, 0.524);
+    --clr-brand-primary-mobile-nav: rgba(0, 13, 34, 0.764);
+    --clr-brand-primary-nav: rgb(0, 13, 34);
+
+    --clr-text-dark:#030d1c;
+    --clr-text-light:#e6e6e6;
+    --clr-text-grey: #d8d8d8;
+    --clr-text-dark-grey: rgba(180, 180, 180, 0.814);
+    --clr-text-dark-ui: rgba(170, 184, 255, 0.8);
+    --clr-text-link: rgb(82, 111, 255);
+
+    --clr-ui-item-dark:#09172D ;
+    --clr-ui-item: rgb(7, 31, 81);
+    --clr-ui-item-light: rgb(82, 111, 255);
+    --clr-ui-item-lighter: rgb(170, 184, 255);
+    --clr-ui-item-grey: rgba(222, 222, 222, 0.341);
+    --clr-ui-nav-badge: rgb(13, 32, 63);
+    --clr-brand-secondary-op: rgba(250, 172, 28, 0.772);
+}   
+
+@media (min-width: 35em) {
+    :root {
+        /* font-sizes */
+        --fs-800: 2rem;
+        --fs-700: 1.9rem;
+        --fs-600: 1.5rem;
+        --fs-500: 1.25rem;
+        --fs-400: 1rem;
+        --fs-300: 1rem;
+    }
+}
+
+@media (min-width: 45em) {
+    :root {
+        /* font-sizes */
+        --fs-800: 2.4rem;
+        --fs-700: 2.2rem;
+        --fs-600: 2rem;
+        --fs-500: 1.35rem;
+        --fs-400: 1.125rem;
+        --fs-300: 1rem;
+    }
+}
