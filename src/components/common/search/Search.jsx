@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { CiSearch } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link  } from 'react-router-dom';
 import apiConfig from '../../../api/apiConfig';
 import NoImage from "../../../assets/No-image.png"
 import axios from 'axios';
@@ -12,6 +11,7 @@ const Search = ({ placeholder }) => {
     const [searchItems, setSearchItems] = useState([]);
     const [error, setError] = useState(false);
     const navigate = useNavigate();
+
 
     const handleSubmit = () => {
       if (searchItems.length) {
@@ -44,7 +44,7 @@ const Search = ({ placeholder }) => {
       setSearchItems([]);
     }
 
-    console.log("searchitems", searchItems)
+    // console.log("searchitems", searchItems)
 
   return (
     <>
@@ -71,11 +71,12 @@ const Search = ({ placeholder }) => {
         )}
       </form>
 
-      {/* {searchItems.length > 0 ? ( */}
-        <ul className="searchlist">
-          {searchItems.slice(0,12).map((item, i) => (
-          <div className="list-bg" key={i}>
-            <Link to={item ? (`/${item.media_type}/${item.id}`) : (`/person/${item.id}`)} className="card-link" key={item.id}>
+      {searchItems.length != 0 && (
+        <div className="searchlist">
+          <ul className='list-bg'>
+          {searchItems.slice(0,12).map((item, i) => {
+            return(
+              <Link to={item ? (`/${item.media_type}/${item.id}`) : (`/person/${item.id}`)} className="card-link" key={item.id}>
               <li>
                 <img 
                 className='media-sm-img' 
@@ -87,22 +88,18 @@ const Search = ({ placeholder }) => {
                   <p>{item.media_type}</p>
                 </div>
               </li>
-            </Link>
-            
-          </div>
-          ))}
-          {searchItems.length > 0 ? (
-              <div className='view-more'>
-                <Link className='link-light' to={`/search/${query}`}>View all results for "{query}"</Link>
-              </div>
-            ) : ""}
-          {error ? <p>{error}</p> : ""}
-        </ul>
-      {/* // ) : (
-      //   <ul className="searchlist">
-      //     <p>No Items</p>
-      //   </ul> */}
-      {/* // )} */}
+              </Link>
+            )
+          })}
+          </ul>
+          {searchItems.length != 12 ? (
+            <div className='view-more'>
+              <Link className='link-light' to={`/search/${query}`}>View all results for "{query}"</Link>
+            </div>
+          ): ""}
+        </div>
+        
+      )}
     </div>
     </>
   )

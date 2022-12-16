@@ -19,14 +19,17 @@
         border-radius: 8px;
         overflow: hidden;
         overflow-y: auto;
-       
+        background-color: var(--clr-ui-item);
+
         @media (max-width: 55em){
             display: none;
         }
 
         .list-bg{
-            background-color: var(--clr-ui-item);
             padding: 10px;
+            li{
+                margin: 10px 0;
+            }
             .search-info{
                 margin-left: 20px;
                 display: flex;

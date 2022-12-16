@@ -1,6 +1,10 @@
 // PAGE NAV ------------- 
 // used on person detail page mainly.
 
+.details-person .page-nav{
+   padding-top: 30px;
+}
+
 .page-nav{
     display: flex;
     flex-wrap: wrap;
