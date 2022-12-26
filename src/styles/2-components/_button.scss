@@ -49,7 +49,14 @@
     }
 }
 
+.watch-trailer div {
+    margin-top: 20px;
+}
 .watch-trailer{
+    @media (max-width: 640px){
+        justify-content: center;
+    }
+
     .youtube-close{
         position: absolute;
         z-index: 11;

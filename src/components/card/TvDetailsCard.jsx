@@ -155,7 +155,7 @@ const tvDetailsCard = (props) => {
                     </>
                   ): 
                     <div className="btn-wrap-start">
-                      <Button className="watch-trailer" 
+                      <Button className="watch-trailer"  
                       onClick={() => setTrailerOpen(true)}>
                         Watch Trailer
                         <CiPlay1/>
