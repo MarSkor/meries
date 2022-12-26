@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useMovies from '../hooks/useMovies';
 import { ErrorMessage, ItemCard, Loader } from '../components';
-import { OutlineButton } from '../components/common/button/Button';
+import { Button } from '../components';
 import { sortMovieBy } from '../utils/themoviedb';
 
 
@@ -19,7 +19,6 @@ const Movies = () => {
   }
 
 
-
   return (
     <div className="homepage-wrap page-wrap">
       <main>
@@ -33,12 +32,11 @@ const Movies = () => {
         </section>
 
         <div className="btn-wrap">
-          <OutlineButton 
+          <Button 
           title="load more movies" 
-          className="load-more" 
           onClick={loadMore}>
           {loading ? 'Loading...' : 'Load More'}
-          </OutlineButton>
+          </Button>
         </div>
 
       </main>

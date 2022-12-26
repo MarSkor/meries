@@ -1,7 +1,7 @@
 import React from 'react';
 import useTvShows from '../hooks/useTvShows';
 import { ErrorMessage, ItemCard, Loader } from '../components';
-import { OutlineButton } from '../components/common/button/Button';
+import { Button } from '../components';
 // import { useForm, Controller } from "react-hook-form";
 import { sortTvBy } from '../utils/themoviedb';
 
@@ -32,12 +32,11 @@ const Tv = () => {
         </section>
 
         <div className="btn-wrap">
-          <OutlineButton 
+          <Button 
           title="load more movies" 
-          className="load-more" 
           onClick={loadMore}>
           {loading ? 'Loading...' : 'Load More'}
-          </OutlineButton>
+          </Button>
         </div>
       </main>
     </div>

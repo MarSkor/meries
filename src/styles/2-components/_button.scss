@@ -1,20 +1,30 @@
-.btn-wrap{
-    text-align: center;
-
-    .load-more{
-        padding: 8px 18px;
-        border-radius: 8px;
-        background-color: var(--clr-brand-secondary);
-        border: none;
-        font-weight: 500;
-        transition: .3s ease;
-        cursor: pointer;
-        &:hover{
-            background-color: var(--clr-ui-item);
-            color: var(--clr-text-grey);
-        }
+.btn-default{
+    padding: 8px 18px;
+    border-radius: 8px;
+    background-color: var(--clr-brand-secondary);
+    border: none;
+    font-weight: 500;
+    transition: .3s ease;
+    cursor: pointer;
+    &:hover{
+        background-color: var(--clr-ui-item);
+        color: var(--clr-text-grey);
     }
 }
+
+.btn-wrap{
+    text-align: center;
+}
+
+.watch-trailer{
+    display: flex;
+    align-items: center;
+    svg{
+        margin-left: 4px;
+        stroke-width: 1.2px;
+    }
+}
+
 
 .btn-icon{
     background: none;
@@ -39,3 +49,11 @@
     }
 }
 
+.watch-trailer{
+    .youtube-close{
+        position: absolute;
+        z-index: 11;
+        bottom: 60px;
+        right: 10px;
+    }
+}

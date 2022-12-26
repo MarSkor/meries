@@ -4,7 +4,7 @@ import { Layout, Details, PersonDetailsCard } from "./components";
 import { Home, Movies, Tv, SearchResults, People } from "./container";
 import "./styles/main.scss"
 
-function App(props) {
+function App() {
   return (
     <Layout>
       <Routes>
@@ -12,7 +12,7 @@ function App(props) {
         <Route path='/movies' element={<Movies/>} />
         
         <Route path='/people' element={<People />} />
-        <Route path='/person/:id' element={<PersonDetailsCard  known_for={props.known_for}/>} />
+        <Route path='/person/:id' element={<PersonDetailsCard />} />
 
         <Route path='/:media/:id' element={<Details />} exact/>
         <Route path='/*' element={<Home/>}/>

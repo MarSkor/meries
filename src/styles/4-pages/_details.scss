@@ -1,7 +1,7 @@
 
 .media-section{
-    // min-height: 100%;  
     display: flex;
+
     @media (min-width:45em){
         min-height: 100vh;  
     }
@@ -40,8 +40,6 @@
             opacity: 0.08;
             display: grid;
             background-repeat: no-repeat;
-            // min-height: 350px;
-            width: 100%;
             background-position: bottom center;
             object-fit: cover;
             @media (min-width: 55em){
@@ -126,6 +124,8 @@
 .media-content{
 
     .header-info{
+        position: relative;
+
         
        &__media-poster{
             border-radius: 8px;
@@ -240,10 +240,7 @@
 }
 
 
-
-
-
-
+// ----------------------------------------------------------------------------
 
 
 // PERSON DETAILS
@@ -415,3 +412,19 @@
         }
     }
 }
+
+
+// ----------------------------------------------------------------------------
+
+
+// YOUTUBE CONTAINER
+
+.youtube-container{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+}
+

@@ -42,3 +42,9 @@ export const calculateAge = (birthday) => {
   const ageDate = new Date(ageDifMs);
   return Math.abs(ageDate.getUTCFullYear() - 1970);
 }
+
+export const calculateYears = (dt2, dt1) => {
+  let diff = (dt2.getTime() - dt1.getTime()) / 1000;
+  diff /= (60 * 60 * 24);
+  return Math.abs(Math.round(diff/365.25))
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import usePerson from '../hooks/usePeople';
 import { ErrorMessage, ItemCard, Loader, ItemCardPerson } from '../components';
-import { OutlineButton } from '../components/common/button/Button';
+import { Button } from '../components';
 
 const People = () => {
 
@@ -19,7 +19,7 @@ const People = () => {
     <div className="homepage-wrap page-wrap">
       <main>
         <section className="row">
-          <h1>Popular People</h1>
+          <h2>Popular People</h2>
             {person ? (
               <div className='list'>
                 {person.map(p => <ItemCardPerson key={p.id} {...p}/>)}
@@ -28,12 +28,11 @@ const People = () => {
         </section>
 
         <div className="btn-wrap">
-          <OutlineButton 
-          title="load more movies" 
-          className="load-more" 
+          <Button 
+          title="load more movies"  
           onClick={loadMore}>
           {loading ? 'Loading...' : 'Load More'}
-          </OutlineButton>
+          </Button>
         </div>
         
       </main>

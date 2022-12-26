@@ -1,12 +1,7 @@
-//containing all elements between navbar and footer
-//make footer stay at bottom
 
 .container{
     min-height: calc(100vh - 100px);
 }
-
-
-// ------ MISC. STYLING ------ 
 
 .loader, .error-wrap{
     width: 100px;
@@ -47,6 +42,7 @@ main, .content-container{
 
 .row{
     margin-bottom: 100px;
+    
     h2{
         font-weight: 500;
     }

@@ -6,6 +6,8 @@ Meries is a website that allows users to search for movies, tv shows and people 
 
 ![Website](./src/assets/website-ss.png)
 
+[Live Demo](https://meries.vercel.app/)
+
 ## Tech Stack
 
 React and SCSS.
@@ -20,4 +22,4 @@ API used https://www.themoviedb.org/
 
 - Add sorting by genres.
 - Add filtering by popularity, release date etc.
-- Add "watch trailer" on details page.
+- ~~Add "watch trailer" on details page.~~ ✅

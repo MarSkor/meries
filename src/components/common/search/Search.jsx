@@ -8,44 +8,55 @@ import axios from 'axios';
 
 const Search = ({ placeholder }) => {
     const [query, setQuery] = useState("");
-    const [searchItems, setSearchItems] = useState([]);
+    // const [searchItems, setSearchItems] = useState([]);
     const [error, setError] = useState(false);
     const navigate = useNavigate();
 
-
     const handleSubmit = (e) => {
       e.preventDefault();
-      if (searchItems.length) {
-        navigate(`/search/${query}`);
-      } else {
-        setError({isError: true});
-      }
+      navigate(`/search/${query}`);
+      clearInput();
     }
 
-    const handleChange = async(e) => {
-      e.preventDefault();
+    const handleChange = (e) => {
       setQuery(e.target.value)
-      try{
-        axios.get(`${apiConfig.baseUrl}search/multi?api_key=${apiConfig.apiKey}&page=1&language=en-US&query=${query}`)
-        .then((res) => {
-          if(res.status === 200){
-            setSearchItems(res.data.results)
-          }
-        })
-      } catch(e) {
-        console.log(e)
-       if(e.response.status === 422){
-        setError(e)
-       }
-      }
     }
+
+
+    // const handleSubmit = (e) => {
+      // e.preventDefault();
+      // if (searchItems.length) {
+      //   navigate(`/search/${query}`);
+      // } else {
+      //   setError({isError: true});
+      // }
+    // }
+
+ 
+
+    // const handleChange = async(e) => {
+    //   e.preventDefault();
+    //   setQuery(e.target.value)
+    //   try{
+    //     axios.get(`${apiConfig.baseUrl}search/multi?api_key=${apiConfig.apiKey}&page=1&language=en-US&query=${query}`)
+    //     .then((res) => {
+    //       if(res.status === 200){
+    //         setSearchItems(res.data.results)
+    //       }
+    //     })
+    //   } catch(e) {
+    //     console.log(e)
+    //    if(e.response.status === 422){
+    //     setError(e)
+    //    }
+    //   }
+    // }
 
     const clearInput = () => {
       setQuery("");
-      setSearchItems([]);
+      // setSearchItems([]);
     }
 
-    // console.log("searchitems", searchItems)
 
   return (
     <>
@@ -59,10 +70,9 @@ const Search = ({ placeholder }) => {
         autoComplete="off"
         placeholder={placeholder}
         onChange={handleChange}
-        error={error.isError}
         />
 
-        {searchItems.length === 0 ? (
+        {query === "" ? (
           <button type='button' className='btn-icon'>
             <CiSearch className='search-icon'/>
           </button>
@@ -73,7 +83,8 @@ const Search = ({ placeholder }) => {
         )}
       </form>
 
-      {searchItems.length != 0 && (
+      {/* ----- adding dynamic search list ----- */}
+      {/* {searchItems.length != 0 && (
         <div className="searchlist">
           <ul className='list-bg'>
           {searchItems.slice(0,12).map((item) => {
@@ -101,7 +112,7 @@ const Search = ({ placeholder }) => {
           ): ""}
         </div>
         
-      )}
+      )} */}
     </div>
     </>
   )

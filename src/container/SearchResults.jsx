@@ -6,7 +6,6 @@ import { OutlineButton } from '../components/common/button/Button';
 
 const SearchResults = () => {
   const { query } = useParams();
-
   const { search, loading, error, loadMore } = useSearch(query)
 
   if(error){
@@ -35,7 +34,6 @@ const SearchResults = () => {
         <div className="btn-wrap">
           <OutlineButton 
           title="load more movies" 
-          className="load-more" 
           onClick={loadMore}>
           {loading ? 'Loading...' : 'Load More'}
           </OutlineButton>

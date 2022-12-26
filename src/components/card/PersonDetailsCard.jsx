@@ -6,8 +6,7 @@ import { calculateAge } from '../../utils/functions';
 import NoImage from "../../assets/No-image.png";
 import { FiExternalLink } from "react-icons/fi";
 import ScrollToTop from "react-scroll-to-top";
-
-
+import { differenceInYears } from 'date-fns'
 
 
 
@@ -44,7 +43,7 @@ const PersonDetailsCard = () => {
   let finalObj = {};
  
   details?.combined_credits?.cast.forEach((item) => {
-    //if either of release_date or first_air_date exsists split it by '-' and use the first part aka the year
+    //if either of release_date or first_air_date exsists split it by '-' and use the first part aka the year to sort by
     if(item.release_date || item.first_air_date){
       const date = item.release_date?.split('-')[0] || item.first_air_date?.split('-')[0];
       if(finalObj[date]){
@@ -68,7 +67,7 @@ const PersonDetailsCard = () => {
     
   if (loading) {
     return (
-       <Loader />
+      <Loader />
     );
   }
 
@@ -76,6 +75,7 @@ const PersonDetailsCard = () => {
     return <ErrorMessage message="An error occured"/>;
   }
 
+  console.log(details)
   return (
     <div className='page-wrap'>
       <main className='details-person'>
@@ -114,18 +114,29 @@ const PersonDetailsCard = () => {
               </div>
               <div>
                 <h4>Born</h4>
-                <p>{details.birthday} ({calculateAge(details.birthday)}) </p>
+                {details.deathday === null ? (
+                  <p>{details.birthday} ({calculateAge(details.birthday)})</p>
+                ) : (
+                  <p>{details.birthday}</p>
+                )}
               </div>
               {details.deathday ? (
                 <div>
                   <h4>Died</h4>
-                  <p>{details.birthday} ({calculateAge(details.birthday)}) </p>
+                  <p>{details.deathday} ({differenceInYears(new Date(details.deathday),new Date(details.birthday))})</p>
                 </div>
               ) : ("")}
-              <div>
-                <h4>Place of Birth</h4>
-                <p>{details.place_of_birth}</p>
-              </div>
+                {details.place_of_birth === null ? (
+                  <div>
+                    <h4>Place of Birth</h4>
+                    <p>Unknown</p>
+                  </div>
+                ) : (
+                  <div>
+                    <h4>Place of Birth</h4>
+                    <p>{details.place_of_birth}</p>
+                  </div>
+                ) }
             </div>
 
             {details.also_known_as?.length > 0 ? (

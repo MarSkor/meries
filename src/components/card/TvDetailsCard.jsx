@@ -3,17 +3,19 @@ import apiConfig from '../../api/apiConfig';
 import useCredits from "../../hooks/useCredits";
 import useReviews from "../../hooks/useReviews";
 import { AiFillStar } from "react-icons/ai";
+import { CiPlay1 } from "react-icons/ci";
 import NoBackdropImage from "../../assets/NoBackdrop.jpg"
 import NoPoster from "../../assets/No-image.png"
 import { Badge, CastList, ReviewList, Button } from "../index"
 import { toLanguageName } from '../../utils/functions';
 import { OutlineBadge } from '../common/badge/Badge';
 import ScrollToTop from "react-scroll-to-top";
+import TrailerCard from './TrailerCard';
 
 const tvDetailsCard = (props) => {
-  // console.log("tv props", props)
   const [castExpanded, setCastExpanded] = useState(false)
   const [reviewsExpanded, setReviewsExpanded] = useState(false)
+  const [ isTrailerOpen, setTrailerOpen ] = useState(false);
 
   const { cast } = useCredits(props.media, props.id);
   const { reviews } = useReviews(props.media, props.id);
@@ -138,9 +140,29 @@ const tvDetailsCard = (props) => {
                     ): null}
                   </div>
 
-                  <div className='watch-trailer'>
-                      <Button>Watch Trailer</Button>
-                  </div>
+                  <div className="watch-trailer">
+                  {isTrailerOpen ? (
+                    <>
+                    {props.videos.results.length > 0 ? (
+                      <TrailerCard
+                      trailer={props.videos ? props.videos : null}
+                      id={props.id}
+                      onClose={() => setTrailerOpen(false)}
+                    />
+                    ) : (
+                      <p className='error-message'>No trailer found.</p>
+                    )}
+                    </>
+                  ): 
+                    <div className="btn-wrap-start">
+                      <Button className="watch-trailer" 
+                      onClick={() => setTrailerOpen(true)}>
+                        Watch Trailer
+                        <CiPlay1/>
+                      </Button>
+                    </div>
+                  }
+                </div>
                 </div>
               </div>
             </div>

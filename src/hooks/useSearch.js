@@ -22,19 +22,24 @@ const useSearch = (query, which) => {
                 setSearch(data.results);
                 setTotalPage(data.total_pages);
 
-                // console.log("data", data)
-
                 setError(false);
                 setLoading(false);
+
             } catch(error){
-                console.error(error)
-                // if (error.response) {
-                    // // console.log(error.response.data);
-                    // console.log(error.response.status);
-                    // // console.log(error.response.headers);
-                //   }
-                setLoading(false)
+                if(error.response){
+                    console.log(error.response.data);
+                    console.log(error.response.status);
+                    console.log(error.response.headers);
+                } else if (error.request) {
+                    console.log(error.request);
+                }
+                else {
+                    console.log('Error', error.message);
+                  }
+                    
+                setLoading(true)
                 setError(true)
+                return error.response;
             }
         }
         fetchSearch()
